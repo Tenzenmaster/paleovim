@@ -28,6 +28,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = false
 vim.opt.scrolloff = 0
+vim.opt.guicursor = 'n-v-c-i:block'
 
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
@@ -58,6 +59,13 @@ require('lazy').setup({
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = false },
+        ensure_installed = {
+          'lua', 'luadoc', 'vim', 'vimdoc',
+          'c', 'cpp', 'cmake', 'make', 'markdown',
+          'c_sharp', 'java', 'rust', 'toml',
+          'gitignore', 'gitcommit', 'gitattributes', 'git_config', 'git_rebase',
+          'html', 'css', 'javascript', 'typescript', 'json',
+        },
       },
     },
     {
@@ -75,6 +83,9 @@ require('lazy').setup({
           rust_analyzer = {},
           zls = {},
           jdtls = {},
+          omnisharp = {
+            cmd = { vim.fn.stdpath('data') .. '/mason/bin/omnisharp' },
+          },
         }
         local ensure_installed = vim.tbl_keys(servers)
         require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
@@ -89,6 +100,8 @@ require('lazy').setup({
             end,
           },
         })
+        require('lspconfig').gdscript.setup({})
+        require('lspconfig').gdshader_lsp.setup({})
       end,
     },
     {
