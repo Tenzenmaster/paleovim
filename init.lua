@@ -28,7 +28,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = false
 vim.opt.scrolloff = 0
-vim.opt.guicursor = 'n-v-c-i:block'
+-- vim.opt.guicursor = 'n-v-c-i:block'
 
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
