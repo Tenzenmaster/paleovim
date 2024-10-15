@@ -50,6 +50,14 @@ require('lazy').setup({
   install = { colorscheme = { 'default' } },
   checker = { enabled = false },
   spec = {
+    {
+      'catppuccin/nvim',
+      name = 'catppuccin',
+      priority = 1000,
+      config = function()
+        vim.cmd.colorscheme('catppuccin')
+      end,
+    },
     { 'tpope/vim-sleuth' },
     {
       'nvim-treesitter/nvim-treesitter',
@@ -65,6 +73,7 @@ require('lazy').setup({
           'c_sharp', 'java', 'rust', 'toml',
           'gitignore', 'gitcommit', 'gitattributes', 'git_config', 'git_rebase',
           'html', 'css', 'javascript', 'typescript', 'json',
+          'odin',
         },
       },
     },
@@ -86,6 +95,7 @@ require('lazy').setup({
           omnisharp = {
             cmd = { vim.fn.stdpath('data') .. '/mason/bin/omnisharp' },
           },
+          ols = {},
         }
         local ensure_installed = vim.tbl_keys(servers)
         require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
