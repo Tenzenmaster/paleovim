@@ -14,9 +14,9 @@ return {
       vim.keymap.set('n', 'gI', telescope.lsp_implementations)
       vim.keymap.set('n', '<leader>D', telescope.lsp_type_definitions)
       vim.keymap.set('n', '<leader>ds', telescope.lsp_document_symbols)
-      vim.keymap.set('n', 'ws', telescope.lsp_dynamic_workspace_symbols)
-      vim.keymap.set('n', 'rn', vim.lsp.buf.rename)
-      vim.keymap.set('n', 'ca', vim.lsp.buf.code_action)
+      vim.keymap.set('n', '<leader>ws', telescope.lsp_dynamic_workspace_symbols)
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -25,7 +25,7 @@ return {
         clangd = {},
         rust_analyzer = {},
         zls = {},
-        jdtls = {},
+        -- jdtls = {},
         omnisharp = {
           cmd = { vim.fn.stdpath('data') .. '/mason/bin/omnisharp' },
         },
