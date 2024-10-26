@@ -33,4 +33,8 @@ vim.opt.shm:append("I")
 
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
--- vim.keymap.set('n', '-', '<cmd>Ex<cr>')
+vim.keymap.set('n', '<leader>K', vim.diagnostic.open_float)
+vim.diagnostic.config({
+  virtual_text = false,
+  update_in_insert = true,
+})

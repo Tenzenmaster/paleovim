@@ -11,6 +11,7 @@ return {
         'lua', 'luadoc', 'vim', 'vimdoc',
         'c', 'cpp', 'cmake', 'make', 'markdown',
         'c_sharp', 'java', 'rust', 'toml',
+        'bash', 'xml', 'wgsl',
       },
     },
   },

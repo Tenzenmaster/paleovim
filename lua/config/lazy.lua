@@ -11,7 +11,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  install = { colorscheme = { 'vscode' } },
+  install = { colorscheme = { Colorscheme } },
   checker = { enabled = false },
   spec = { import = 'plugins' },
 })
+
+vim.cmd.colorscheme(Colorscheme)
