@@ -30,6 +30,7 @@ vim.opt.cursorline = false
 vim.opt.scrolloff = 5
 vim.opt.guicursor = 'n-v-c-i:block'
 vim.opt.shm:append("I")
+vim.opt.cursorline = true
 
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
