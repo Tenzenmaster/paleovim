@@ -24,12 +24,10 @@ return {
         lua_ls = {},
         clangd = {},
         rust_analyzer = {},
-        zls = {},
         -- jdtls = {},
         omnisharp = {
           cmd = { vim.fn.stdpath('data') .. '/mason/bin/omnisharp' },
         },
-        ols = {},
       }
       local ensure_installed = vim.tbl_keys(servers)
       require('mason-tool-installer').setup({ ensure_installed = ensure_installed })

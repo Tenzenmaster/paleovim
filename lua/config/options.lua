@@ -31,6 +31,12 @@ vim.opt.scrolloff = 5
 vim.opt.guicursor = 'n-v-c-i:block'
 vim.opt.shm:append("I")
 vim.opt.cursorline = true
+vim.opt.cindent = false
+
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
