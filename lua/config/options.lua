@@ -31,7 +31,7 @@ vim.opt.scrolloff = 5
 vim.opt.guicursor = 'n-v-c-i:block'
 vim.opt.shm:append("I")
 vim.opt.cursorline = true
-vim.opt.cindent = false
+vim.opt.cindent = true
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
