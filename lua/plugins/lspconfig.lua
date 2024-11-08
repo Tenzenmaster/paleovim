@@ -21,10 +21,12 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       local servers = {
+        -- jdtls = {},
         lua_ls = {},
+        ts_ls = {},
         clangd = {},
         rust_analyzer = {},
-        -- jdtls = {},
+        pyright = {},
         omnisharp = {
           cmd = { vim.fn.stdpath('data') .. '/mason/bin/omnisharp' },
         },

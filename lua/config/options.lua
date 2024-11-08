@@ -32,6 +32,7 @@ vim.opt.guicursor = 'n-v-c-i:block'
 vim.opt.shm:append("I")
 vim.opt.cursorline = true
 vim.opt.cindent = true
+vim.opt.gdefault = true
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
@@ -41,6 +42,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
 vim.keymap.set('n', '<leader>K', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>di', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
+
+vim.diagnostic.enable(false)
 vim.diagnostic.config({
   virtual_text = false,
   update_in_insert = true,

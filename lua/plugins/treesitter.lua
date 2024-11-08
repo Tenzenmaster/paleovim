@@ -11,6 +11,7 @@ return {
       'c', 'cpp', 'cmake', 'make', 'markdown',
       'c_sharp', 'java', 'rust', 'toml', 'bash', 'xml', 'wgsl',
       'gitattributes', 'gitcommit', 'gitignore', 'git_rebase', 'git_config',
+      'nix', 'zig',
     },
   },
 }
