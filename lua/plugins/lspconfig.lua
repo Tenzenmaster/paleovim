@@ -25,7 +25,9 @@ return {
         lua_ls = {},
         ts_ls = {},
         clangd = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          diagnostic = { refreshSupport = false },
+        },
         pyright = {},
         omnisharp = {
           cmd = { vim.fn.stdpath('data') .. '/mason/bin/omnisharp' },
