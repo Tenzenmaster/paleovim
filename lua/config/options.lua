@@ -41,9 +41,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<space>', '<nop>')
-vim.keymap.set('n', '<leader>K', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>di', function()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end)
+vim.keymap.set('n', '-', '<cmd>Ex<cr>')
 
 vim.diagnostic.enable(false)
 vim.diagnostic.config({
