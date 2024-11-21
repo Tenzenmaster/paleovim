@@ -46,24 +46,6 @@ vim.keymap.set('n', '<leader>di', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end)
 vim.keymap.set('n', '-', '<cmd>Ex<cr>')
-vim.keymap.set('i', '<cr>', function()
-  local col = vim.api.nvim_win_get_cursor(0)[2]
-  if col > 0 then
-    local line = vim.api.nvim_get_current_line()
-    if line:sub(col, col) == '{' then
-      local keys = vim.api.nvim_replace_termcodes('<cr><cr>}<C-o>k<tab>', true, true, true)
-      vim.api.nvim_feedkeys(keys, 'n', true)
-    elseif col > 1 then
-      if line:sub(col - 1, col) == '{;' then
-        local keys = vim.api.nvim_replace_termcodes('<bs><cr><cr>};<C-o>k<tab>', true, true, true)
-        vim.api.nvim_feedkeys(keys, 'n', true)
-      end
-    end
-  else
-    local keys = vim.api.nvim_replace_termcodes('<cr>', true, true, true)
-    vim.api.nvim_feedkeys(keys, 'n', true)
-  end
-end)
 
 vim.diagnostic.enable(false)
 vim.diagnostic.config({
