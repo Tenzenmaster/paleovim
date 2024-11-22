@@ -1,36 +1,43 @@
+local pairs = {
+  ['('] = ')',
+  ['['] = ']',
+  ['{'] = '}',
+  ["'"] = "'",
+  ['"'] = '"',
+}
+
+local enders = {
+  [';'] = {},
+  [','] = {},
+  [':'] = {},
+}
+
 local callback = function()
   local col = vim.api.nvim_win_get_cursor(0)[2]
   local line = vim.api.nvim_get_current_line()
 
   local ender = ''
+  local closing = ''
 
-  local count = 0
-  for pos = col, 0, -1 do
-    local sub = line:sub(pos, pos)
+  for i = col, 0, -1 do
+    local char = string.sub(line, i, i)
 
-    if line:sub(pos, pos) == '{' then
-      count = count + 1
-    elseif pos == col and (sub == ';' or sub == ',' ) then
-      ender = sub
+    if i == col and enders[char] ~= nil then
+      ender = char
+    elseif pairs[char] ~= nil then
+      closing = closing .. pairs[char]
     else
       break
     end
   end
 
-  local ret = '<cr>'
-
-  if count > 0 then
-    ret = ''
-    if ender:len() > 0 then
-      ret = ret .. '<bs>'
-    end
-
-    ret = ret .. '<cr><cr>'
-    for i = 1, count do
-      ret = ret .. '}'
-    end
-
-    ret = ret .. ender .. '<C-o>k<C-f>'
+  local ret
+  if string.len(closing) <= 0 then
+    ret = '<cr>'
+  elseif string.len(ender) > 0 then
+    ret = '<bs>' .. '<cr><cr>' .. closing .. ender .. '<C-o>k<C-f>'
+  else
+    ret = '<cr><cr>' .. closing .. '<C-o>k<C-f>'
   end
 
   return ret
