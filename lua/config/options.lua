@@ -35,6 +35,7 @@ vim.opt.cindent = true
 vim.opt.gdefault = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.laststatus = 3
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
@@ -47,6 +48,7 @@ vim.keymap.set('n', '<leader>di', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end)
 vim.keymap.set('n', '-', '<cmd>Ex<cr>')
+vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
 vim.diagnostic.enable(false)
 vim.diagnostic.config({
@@ -67,19 +69,11 @@ vim.api.nvim_create_autocmd('CmdlineLeave', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'nix',
+  pattern = { 'lua', 'html', 'css' },
   callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lua',
-  callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.expandtab = true
   end,
 })
